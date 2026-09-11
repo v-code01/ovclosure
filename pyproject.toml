@@ -1,0 +1,17 @@
+[project]
+name = "ovclosure"
+version = "0.1.0"
+description = "Exact spectral reduction and near-idempotence structure in attention OV operators"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy>=2.0",
+    "safetensors>=0.4",
+    "huggingface_hub>=0.25",
+    "ml_dtypes>=0.4",
+]
+
+[tool.ruff]
+line-length = 100
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
