@@ -1,0 +1,14 @@
+Apple M4 Pro cache hierarchy, captured via `sysctl -a | grep -iE "cachesize|perflevel"`.
+Cited in README.md to contextualize the eigvals timing-jump observation; not
+re-derived automatically since it's a fixed hardware property, not a run result.
+
+hw.perflevel0.l1icachesize: 196608
+hw.perflevel0.l1dcachesize: 131072
+hw.perflevel0.l2cachesize: 16777216
+hw.perflevel1.l1icachesize: 131072
+hw.perflevel1.l1dcachesize: 65536
+hw.perflevel1.l2cachesize: 4194304
+machdep.cpu.brand_string: Apple M4 Pro
+
+perflevel0 = performance (P) core cluster: 16MB L2
+perflevel1 = efficiency (E) core cluster: 4MB L2
