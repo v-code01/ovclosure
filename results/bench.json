@@ -1,0 +1,58 @@
+[
+ {
+  "label": "gpt2",
+  "d_model": 768,
+  "d_head": 64,
+  "theoretical_ratio": 1728.0,
+  "naive_median_ms": 114.30270850542001,
+  "naive_min_ms": 104.82854099245742,
+  "naive_std_ms": 45.89689929319154,
+  "reduced_median_ms": 0.5496459925780073,
+  "reduced_min_ms": 0.542958005098626,
+  "reduced_std_ms": 0.009548416238937157,
+  "measured_speedup_median": 207.95695783990976,
+  "measured_speedup_min": 193.0693350278826
+ },
+ {
+  "label": "qwen2.5-0.5b",
+  "d_model": 896,
+  "d_head": 64,
+  "theoretical_ratio": 2744.0,
+  "naive_median_ms": 115.28204201022163,
+  "naive_min_ms": 110.04445800790563,
+  "naive_std_ms": 22.925091828740303,
+  "reduced_median_ms": 0.4175630019744858,
+  "reduced_min_ms": 0.4067090048920363,
+  "reduced_std_ms": 0.026720826777882706,
+  "measured_speedup_median": 276.08298978860597,
+  "measured_speedup_min": 270.5729567928246
+ },
+ {
+  "label": "smollm2-135m-instruct",
+  "d_model": 576,
+  "d_head": 64,
+  "theoretical_ratio": 729.0,
+  "naive_median_ms": 52.96585401811171,
+  "naive_min_ms": 47.46954099391587,
+  "naive_std_ms": 12.245993811850504,
+  "reduced_median_ms": 0.3906875062966719,
+  "reduced_min_ms": 0.3649170103017241,
+  "reduced_std_ms": 0.12404938267944875,
+  "measured_speedup_median": 135.57089275819237,
+  "measured_speedup_min": 130.08311384187508
+ },
+ {
+  "label": "qwen2.5-1.5b-instruct",
+  "d_model": 1536,
+  "d_head": 128,
+  "theoretical_ratio": 1728.0,
+  "naive_median_ms": 465.91943749808706,
+  "naive_min_ms": 427.01824998948723,
+  "naive_std_ms": 48.572937667893996,
+  "reduced_median_ms": 2.8208125149831176,
+  "reduced_min_ms": 2.6812079886440188,
+  "reduced_std_ms": 0.24353958598986267,
+  "measured_speedup_median": 165.17206833963425,
+  "measured_speedup_min": 159.26338120656033
+ }
+]

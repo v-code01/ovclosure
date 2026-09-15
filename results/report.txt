@@ -1,0 +1,23 @@
+ovclosure report (regenerate with scripts/gen_report.py)
+
+MODEL TABLE
+gpt2                     n_heads= 144  median_rho=0.829  frac_beat_p99=94.4%  n_layers=12  d_head=64
+qwen2.5-0.5b             n_heads= 336  median_rho=0.910  frac_beat_p99=92.9%  n_layers=24  d_head=64
+smollm2-135m-instruct    n_heads= 270  median_rho=0.979  frac_beat_p99=94.4%  n_layers=30  d_head=64
+qwen2.5-1.5b-instruct    n_heads= 336  median_rho=0.957  frac_beat_p99=97.0%  n_layers=28  d_head=128
+
+NULL TABLE
+d_head=64: median=43.34 p1=11.19 p99=1662.48
+d_head=128: median=88.27 p1=22.32 p99=5847.39
+
+OVERALL
+total heads: 1086
+overall frac_beat_p99: 94.75%
+heads with |alpha|<0.03 (near-nilpotent, rho ill-conditioned): 82 / 1086
+largest rho outlier: model=smollm2-135m-instruct layer=15 head=0 rho=545 alpha=0.019
+
+BENCH TABLE
+gpt2                     naive_median=114.3ms naive_min=104.8ms reduced_median=0.55ms reduced_min=0.54ms speedup_median=208x speedup_min=193x theoretical=1728x
+qwen2.5-0.5b             naive_median=115.3ms naive_min=110.0ms reduced_median=0.42ms reduced_min=0.41ms speedup_median=276x speedup_min=271x theoretical=2744x
+smollm2-135m-instruct    naive_median=53.0ms naive_min=47.5ms reduced_median=0.39ms reduced_min=0.36ms speedup_median=136x speedup_min=130x theoretical=729x
+qwen2.5-1.5b-instruct    naive_median=465.9ms naive_min=427.0ms reduced_median=2.82ms reduced_min=2.68ms speedup_median=165x speedup_min=159x theoretical=1728x

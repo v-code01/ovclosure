@@ -1,0 +1,59 @@
+# Honesty manifest. Every substantive numeric/benchmark claim in README.md
+# must name an `evidence` substring that literally appears in one of `files`.
+# Regenerate results/report.txt with `python scripts/gen_report.py` before
+# trusting these -- it is the single source every number below is copied from.
+
+[[claim]]
+text = "Nonzero eigenvalues of A@B equal those of B@A (Sylvester reduction), verified on synthetic matrices of multiple shapes/ranks and on all real extracted heads"
+evidence = ["def nonzero_spectrum_match", "def test_spectrum_match_random_generic", "def test_qwen_heads_satisfy_theorem"]
+files = ["src/theorem.py", "tests/test_theorem.py", "tests/test_extract.py"]
+
+[[claim]]
+text = "The idempotence residual rho is scale-invariant (fixed a real bug where an earlier version was not)"
+evidence = ["def test_scale_invariance_of_residual"]
+files = ["tests/test_theorem.py"]
+
+[[claim]]
+text = "1086 heads analyzed across 4 models"
+evidence = ["total heads: 1086"]
+files = ["results/report.txt"]
+
+[[claim]]
+text = "94.8% (rounds to 94.75-94.8%) of heads beat the 99th percentile of a matched-shape random-matrix null"
+evidence = ["overall frac_beat_p99"]
+files = ["results/report.txt"]
+
+[[claim]]
+text = "Per-model median rho and frac_beat_p99 table"
+evidence = ["gpt2", "qwen2.5-0.5b", "smollm2-135m-instruct", "qwen2.5-1.5b-instruct"]
+files = ["results/report.txt"]
+
+[[claim]]
+text = "82 of 1086 heads have |alpha| < 0.03 and account for the rho>90 outliers"
+evidence = ["heads with |alpha|<0.03"]
+files = ["results/report.txt"]
+
+[[claim]]
+text = "Null distribution medians/percentiles at d_head=64 and d_head=128"
+evidence = ["NULL TABLE", "d_head=64", "d_head=128"]
+files = ["results/report.txt"]
+
+[[claim]]
+text = "Measured naive vs reduced eigendecomposition timing and speedup, 4 model shapes, on M4 Pro"
+evidence = ["BENCH TABLE"]
+files = ["results/report.txt"]
+
+[[claim]]
+text = "M4 Pro cache sizes cited for the timing-jump discussion (perflevel0=P-cluster 16MB L2, perflevel1=E-cluster 4MB L2)"
+evidence = ["hw.perflevel0.l2cachesize", "hw.perflevel1.l2cachesize"]
+files = ["scripts/cache_sizes.txt"]
+
+[[claim]]
+text = "GQA heads sharing a kv-group have byte-identical value maps (A matrices); gpt2 head extraction reconstructs the source weight tensor exactly"
+evidence = ["def test_qwen_gqa_shares_A_within_kv_group", "def test_gpt2_reconstructs_source_weight_exactly"]
+files = ["tests/test_extract.py"]
+
+[[claim]]
+text = "All models used are public, ungated Hugging Face checkpoints requiring no auth token"
+evidence = ["openai-community/gpt2", "Qwen/Qwen2.5-0.5B", "HuggingFaceTB/SmolLM2-135M-Instruct", "Qwen/Qwen2.5-1.5B-Instruct"]
+files = ["src/extract.py"]
